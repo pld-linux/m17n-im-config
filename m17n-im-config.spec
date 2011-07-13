@@ -11,6 +11,7 @@ License:	GPL
 Group:		Libraries
 Source0:	http://www.m17n.org/m17n-lib-download/%{name}-%{version}.tar.gz
 # Source0-md5:	dfb1812d604c5b2392ebb7e47034c3f9
+Source1:	m17n-im-config.1
 URL:		http://www.m17n.org/
 BuildRequires:	gtk+2-devel
 BuildRequires:	m17n-lib-devel
@@ -54,9 +55,12 @@ Statyczna biblioteka FOO.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_mandir}/man1/m17n-im-config.1
 
 %{__make} -j1 install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+install %{SOURCE1} $RPM_BUILD_ROOT%{_mandir}/man1/m17n-im-config.1
 
 %find_lang m17n-im-config
 
@@ -72,6 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/libm17n-im-config.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libm17n-im-config.so.0
+%{_mandir}/man1/m17n-im-config.1*
 
 %files devel
 %defattr(644,root,root,755)
