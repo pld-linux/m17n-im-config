@@ -2,11 +2,11 @@
 # Conditional build:
 %bcond_without	static_libs	# don't build static libraries
 #
-Summary:	-
-Summary(pl.UTF-8):	-
+Summary:	Input method configuration library for m17n-lib
+#Summary(pl.UTF-8):	-
 Name:		m17n-im-config
 Version:	0.9.0
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		Libraries
 Source0:	http://www.m17n.org/m17n-lib-download/%{name}-%{version}.tar.gz
@@ -18,32 +18,35 @@ BuildRequires:	m17n-lib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
+m17n-im-config is a library to create a GTK+ widget for per-user
+configuration of input methods provided by the m17n library, and a
+standalone GUI program which demonstrates the library.
 
 #%description -l pl.UTF-8
 
 %package devel
-Summary:	Header files for FOO library
-Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki FOO
+Summary:	Header files for m17n-im-config library
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki m17n-im-config
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
-Header files for FOO library.
+Header files for m17n-im-config library.
 
 %description devel -l pl.UTF-8
-Pliki nagłówkowe biblioteki FOO.
+Pliki nagłówkowe biblioteki m17n-im-config.
 
 %package static
-Summary:	Static FOO library
-Summary(pl.UTF-8):	Statyczna biblioteka FOO
+Summary:	Static m17n-im-config library
+Summary(pl.UTF-8):	Statyczna biblioteka m17n-im-config
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
-Static FOO library.
+Static m17n-im-config library.
 
 %description static -l pl.UTF-8
-Statyczna biblioteka FOO.
+Statyczna biblioteka m17n-im-config.
 
 %prep
 %setup -q
